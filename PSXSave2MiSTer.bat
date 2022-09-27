@@ -100,12 +100,12 @@ if "%1"=="" (
 
 :Convert
 echo copying %~n1 save to the MiSTer
-xcopy /s /Y %1 "\\mister\sdcard\saves\PSX\%~n1.sav"
+copy /s /Y %1 "\\mister\sdcard\saves\PSX\%~n1.sav"
 goto end
 
 :GetSaveConvert
 echo copying %GameName% save to MiSTer
-xcopy /s /Y %SavePath% "\\mister\sdcard\saves\PSX\%GameName%.sav"
+xcopy /s /Y "%SavePath%" "\\mister\sdcard\saves\PSX\%GameName%.sav"
 goto end
 
 ::Script reaches here if the MiSTer is not found on the network. Prompts user to check connections.
@@ -119,7 +119,6 @@ exit
 
 ::Success!
 :end
-cls
 echo [92mSave successfully transfered and converted! This window will close after 10 seconds.[0m
 timeout /t 10 >nul
 exit
